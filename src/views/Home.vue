@@ -12,7 +12,7 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid examples">
+    <div class="container-fluid descriptions">
       <div class="row">
         <div class="col-6 offset-1">
           <h3>What are Regular Expressions?</h3>
@@ -22,7 +22,7 @@
             <li>There are multiple methods that you can use:</li>
           </ul>
         </div>
-        <div class="col-11">
+        <div class="col-11 methodDefinitions">
           <ul class="methodList">
             <li>
               <h4>test()</h4>
@@ -81,18 +81,34 @@
         </div>
       </div>
     </div>
+    <div class="container-fluid methodExamples">
+      <div class="row">
+        <div class="col-12">
+          <h3>.test() examples</h3>
+        </div>
+        <div class="col-4"></div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import Example from '@/components/Example.vue';
 export default {
   name: 'Home',
-  components: {
-    Example,
+  data() {
+    return {};
   },
-  data() {},
-  methods: {},
+  mounted() {
+    this.testExamples();
+  },
+  methods: {
+    testExamples() {
+      const str = 'hello world!';
+      // test to see if 'hello' comes at the beginning of the str
+      const result = /^hello /.test(str);
+      console.log(result);
+    },
+  },
 };
 </script>
 
@@ -102,6 +118,9 @@ export default {
 }
 .descriptionList {
   text-align: start;
+}
+.methodDefinitions {
+  border-bottom: 5pt solid grey;
 }
 .methodList {
   text-align: start;
